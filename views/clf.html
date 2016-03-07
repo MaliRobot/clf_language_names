@@ -1,0 +1,33 @@
+<div class="main" ng-controller="CLFlangController">
+	<h1>{{ title }}</h1>
+	<div ng-show="langDefined()">
+		<h2>{{ langTitle }}</h2>
+		<div>
+			<p ng-if="lang.wiki_code">Wikipedia code {{ lang.wiki_code }}</p>
+			<p ng-if="lang.iso_639_1">ISO 639-1 code {{ lang.iso_639_1 }}</p>
+    		<p ng-if="lang.iso_639_3">ISO 639-3 code {{ lang.iso_639_3 }}</p>
+    	</div>
+		<div ng-repeat="(key, value) in lang.language_names.regular">
+			<h3> {{ key }} </h3>
+			<div ng-if="value.wiki_name.name">Wiki name: {{ value.wiki_name.name }} </div>
+			<div ng-if="value.cldr_name" ng-repeat="cldr in value.cldr_name">
+				<p>CLDR name: {{ cldr.name }}</p> 
+			</div>
+			<div ng-if="value.lingvoj_names" ng-repeat="ling in value.lingvoj_names">
+				<p>Lingvoj name: {{ ling.name }}</p> 
+			</div>
+		</div>
+		<div ng-repeat="(code, names) in lang.language_names.other">
+			<h3> {{ code }} </h3>
+			<div ng-if="names.cldr_name" ng-repeat="c_other_name in names.cldr_name">
+				<p>CLDR name: {{ c_other_name.name }} </p>
+			</div>
+			<div ng-if="names.lingvoj_names" ng-repeat="l_other_name in names.lingvoj_names">
+				<p>Lingvoj name: {{ l_other_name }} </p>
+			</div>
+		</div>
+	</div>   
+	<div ng-repeat="(key, value) in languages">
+		<a href ng-click="showLanguage(key)"> {{ key }} </a>
+	</div>      
+</div>

@@ -1,0 +1,20 @@
+<div class="main" ng-controller="OtherLangController">
+
+	<h1>{{ title }}</h1>
+	<div ng-show="langDefined()">
+		<h2>{{ langTitle }}</h2>
+		<div ng-repeat="(key, value) in lang.language_names">
+			<h3> {{ key }} </h3>
+			<div ng-if="value.cldr_name" ng-repeat="cldr_other in value.cldr_name">
+				<p>CLDR name: {{ cldr_other.name }}</p> 
+			</div>
+			<div ng-if="value.lingvoj_names" ng-repeat="ling_other in value.lingvoj_names">
+				<p>Lingvoj name: {{ ling_other.name }}</p> 
+			</div>
+		</div>
+	</div>   
+
+	<div ng-repeat="(lang, value) in other_languages">
+		<a href ng-click="showLanguage(lang)"> {{ lang }} </a>
+	</div>  
+</div>
