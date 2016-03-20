@@ -1,1 +1,1 @@
-{"srn": {"language_names": {"lingvoj_names": [{"name": "Silesia tongo"}], "cldr_name": [{"name": "Sranan Tongo"}]}}}
+{"srn": {"cop": {"lingvoj_names": [{"name": "Koptitongo"}]}, "eng": {"cldr_name": [{"name": "Sranan Tongo"}], "lingvoj_names": [{"name": "Ingristongo"}]}, "nld": {"lingvoj_names": [{"name": "Bakratongo"}]}, "rus": {"lingvoj_names": [{"name": "Rusitongo"}]}, "srn": {"lingvoj_names": [{"name": "Sranantongo"}]}, "szl": {"lingvoj_names": [{"name": "Silesia tongo"}]}}}

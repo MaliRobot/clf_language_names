@@ -1,1 +1,1 @@
-{"pag": {"language_names": {"lingvoj_names": [{"name": "Salitan Tagalog"}], "cldr_name": [{"name": "Pangasinan"}]}}}
+{"pag": {"ceb": {"lingvoj_names": [{"name": "Salitan Cebuano"}]}, "eng": {"cldr_name": [{"name": "Pangasinan"}]}, "ilo": {"lingvoj_names": [{"name": "Salitan Iloko"}]}, "pag": {"lingvoj_names": [{"name": "Salitan Pangasinan"}]}, "tgl": {"lingvoj_names": [{"name": "Salitan Tagalog"}]}}}

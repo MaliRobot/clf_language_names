@@ -1,1 +1,1 @@
-{"vol": {"language_names": {"cldr_name": [{"name": "Volapük"}], "lingvoj_names": [{"name": "Spanyänapük"}]}}}
+{"vol": {"eng": {"cldr_name": [{"name": "Volapük"}], "lingvoj_names": [{"name": "Linglänapük"}]}, "epo": {"lingvoj_names": [{"name": "Sperantapük"}]}, "hrv": {"lingvoj_names": [{"name": "Kroasänapük"}]}, "lim": {"lingvoj_names": [{"name": "Limburgänapük"}]}, "oci": {"lingvoj_names": [{"name": "Loxitänapük"}]}, "pol": {"lingvoj_names": [{"name": "Polänapük"}]}, "spa": {"lingvoj_names": [{"name": "Spanyänapük"}]}}}

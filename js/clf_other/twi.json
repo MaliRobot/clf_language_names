@@ -1,1 +1,1 @@
-{"twi": {"language_names": {"lingvoj_names": [{"name": "Chinese"}], "cldr_name": [{"name": "Twi"}]}}}
+{"twi": {"aka": {"lingvoj_names": [{"name": "Akan"}]}, "eng": {"cldr_name": [{"name": "Twi"}], "lingvoj_names": [{"name": "English"}]}, "tsn": {"lingvoj_names": [{"name": "Tswana"}]}, "zho": {"lingvoj_names": [{"name": "Chinese"}]}}}

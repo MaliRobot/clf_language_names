@@ -1,4 +1,4 @@
-app.controller('CLFlangController', function($scope, $routeParams, json_fetcher) { 
+app.controller('CLFlangController', function($scope, json_fetcher) { 
     $scope.title = 'Names of Wikipedia languages'; 
     $scope.languages = undefined;
     $scope.lang = undefined;
@@ -6,17 +6,18 @@ app.controller('CLFlangController', function($scope, $routeParams, json_fetcher)
 
     if($scope.languages == undefined){
         $scope.languages = json_fetcher.list_clf(); 
-        console.log($scope.languages);
     };              
 
     $scope.showLanguage = function(key) {
         $scope.lang = json_fetcher.lookup_clf(key);
-        $scope.langTitle = key;
+        console.log($scope.lang);
+        if ($scope.lang != undefined) {
+            $scope.langTitle = Object.keys($scope.lang)[0];
+        }
     };
 
     $scope.langDefined = function() {
-        console.log($scope.lang !== "undefined");
-        return ($scope.lang !== "undefined");
+        return ($scope.lang != "undefined");
     }
 });
 

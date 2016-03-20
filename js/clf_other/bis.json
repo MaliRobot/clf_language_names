@@ -1,1 +1,1 @@
-{"bis": {"language_names": {"lingvoj_names": [{"name": "Toktok Ukraine"}], "cldr_name": [{"name": "Bislama"}]}}}
+{"bis": {"bis": {"lingvoj_names": [{"name": "Bislama"}]}, "eng": {"cldr_name": [{"name": "Bislama"}]}, "frt": {"lingvoj_names": [{"name": "Kiai"}]}, "rus": {"lingvoj_names": [{"name": "Toktok Rusia"}]}, "tpi": {"lingvoj_names": [{"name": "Tok Pisin"}]}, "ukr": {"lingvoj_names": [{"name": "Toktok Ukraine"}]}}}
