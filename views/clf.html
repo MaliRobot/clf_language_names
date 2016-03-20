@@ -2,7 +2,7 @@
 	<h1>{{ title }}</h1>
 	<div ng-show="langDefined()">
 		<h2>{{ langTitle }}</h2>
-		<div>
+		<div ng-if="lang">
 			<p ng-if="lang.clf_full_code">CLF long code: {{ lang.clf_full_code }}</p>
 			<p ng-if="lang.wiki_code">Wikipedia code {{ lang.wiki_code }}</p>
 			<p ng-if="lang.iso_639_1">ISO 639-1 code {{ lang.iso_639_1 }}</p>
@@ -37,6 +37,6 @@
 		</div>
 	</div>
 	<div ng-repeat="(key, value) in languages">
-		<a href ng-click="showLanguage(key)"> {{ key }} </a>
+		<a href ng-click="showLanguage(value)"> {{ value }} </a>
 	</div>      
 </div>
