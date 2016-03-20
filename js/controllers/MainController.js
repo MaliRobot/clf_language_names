@@ -1,18 +1,21 @@
-app.controller('MainController', function($scope, $routeParams, json_fetcher) { 
+app.controller('MainController', ['$scope', 'json_fetcher', function($scope, json_fetcher) { 
     $scope.title = 'Names of languages'; 
-    $scope.search = undefined;  
-    $scope.result = undefined;
-    $scope.lang = undefined;
+    $scope.search = null;  
+    $scope.result = null;
+    $scope.lang = null;
 
     $scope.findValue = function(search) { 
         $scope.result = json_fetcher.lookup_clf(search[0].toUpperCase() + search.slice(1));
-        if ($scope.result != undefined) {
+        if ($scope.result != null) {
             $scope.lang = Object.keys($scope.result)[0]; 
         }
     };
 
     $scope.langDefined = function() {
-        return $scope.lang != undefined;
+        if ($scope.lang == 0) {
+            return true;
+        } 
+        return false;
     }
   
-});
+}]);

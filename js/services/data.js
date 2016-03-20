@@ -1,8 +1,8 @@
 app.service('json_fetcher', function($http) {
-    var languages = undefined;
-    var lang = undefined;
-    var other_lang = undefined;
-    var other_languages = undefined;
+    var languages = null;
+    var lang = null;
+    var other_lang = null;
+    var other_languages = null;
     this.lookup_clf = function (search) {
         $http.get('/clf_language_names/js/clf/' + search + '.json')
         .success(function (data) {

@@ -1,16 +1,23 @@
 <section ng-controller="MainController">
 	<div>CLF languages</div>
+	<!-- <pre> {{ search }} </pre> -->
+	<!-- <div ng-show="languages['search']"></div> -->
+	<a href='#/clf'>List of Wikipedia Languages</a>
+	<a href='#/other'>List of non-Wikipedia Languages</a>
 	<form novalidate class="simple-form" ng-submit="findValue(search)">
 		<input name="search" type="search" ng-model="search" />
 		<!-- <button type="button" ng-Click="findValue(search)">Search</button> -->
 		{{ search }}
 	</form>
+	<div ng-show="langDefined()">
+		<p>No results.</p>
+	</div>
 	<ul ng-if="result">
 		<div ng-repeat="lang in result">
-			<li>CLF long code: {{ lang.clf_full_code }}</li>
-			<li>Wiki code: {{ lang.wiki_code }}</li>
-		    <li>ISO 639-1: {{ lang.iso_639_1 }}</li>
-		    <li>ISO 639-3: {{ lang.iso_639_3 }}</li>
+			<li ng-if="lang.clf_full_code">CLF long code: {{ lang.clf_full_code }}</li>
+			<li ng-if="lang.wiki_code">Wiki code: {{ lang.wiki_code }}</li>
+		    <li ng-if="lang.iso_639_1">ISO 639-1: {{ lang.iso_639_1 }}</li>
+		    <li ng-if="lang.iso_639_3">ISO 639-3: {{ lang.iso_639_3 }}</li>
 		    <div ng-if="lang.language_names.regular">
 		        <h2>Names of Wikipedia languages</h2>
 				<div ng-repeat="(key, value) in lang.language_names.regular">
@@ -45,12 +52,4 @@
 			</div>
 		</div>
 	</ul>
-	<p> {{ title }} </p>
-	<!-- <pre> {{ search }} </pre> -->
-	<!-- <div ng-show="languages['search']"></div> -->
-	<div ng-show="langDefined()">
-		{{ lang }}
-	</div>
-	<a href='#/clf'>List of Wikipedia Languages</a>
-	<a href='#/other'>List of non-Wikipedia Languages</a>
 </section>

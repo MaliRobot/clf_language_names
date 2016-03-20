@@ -15,11 +15,11 @@ app.config(['$routeProvider', function($routeProvider){
       controller: 'OtherLangController',
       templateUrl: 'views/other.html'
     })
-    .when('/language',{
-      controller: 'LangController',
-      templateUrl: 'views/language.html'
-    })
-    .otherwise('/');
+    // .when('/language',{
+    //   controller: 'LangController',
+    //   templateUrl: 'views/language.html'
+    // })
+    // .otherwise('/');
 
 }]);
 
