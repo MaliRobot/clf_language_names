@@ -8,4 +8,4 @@ This resulted in two json files, one containing Wikipedia languages and the othe
 
 Language data is presented comparatively for each of the sources, also with ISO numbers, wiki codes and our own CLF codes.
 
-
+See it in action (WIP): http://www.ex-misha.org/clf_language_names
