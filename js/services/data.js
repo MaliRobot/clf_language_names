@@ -1,46 +1,65 @@
-app.service('json_fetcher', function($http) {
+app.factory('json_fetcher', function($http, $q) {
+    var response = {};
     var languages = null;
     var lang = null;
     var other_lang = null;
     var other_languages = null;
-    this.lookup_clf = function (search) {
-        $http.get('/clf_language_names/js/clf/' + search + '.json')
-        .success(function (data) {
-            lang = data;                
+    response.lookup_clf = function (search) {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: '/clf_language_names/js/clf/' + search + '.json'
         })
-        .error(function(data,status,error,config){
-            lang = [{heading:"Error",description:"Could not load json data"}];
-        });
-        return lang;
-    }
-    this.lookup_other = function (search) {
-        $http.get('/clf_language_names/js/clf_other/' + search + '.json')
         .success(function (data) {
-            other_lang = data;                
+            deferred.resolve(data);            
         })
-        .error(function(data,status,error,config){
-            other_lang = [{heading:"Error",description:"Could not load json data"}];
+        .error(function(){
+            deferred.reject('Error');
         });
-        return other_lang;
+        return deferred.promise;
     }
-    this.list_clf = function () {
-        $http.get('/clf_language_names/js/clf/clf_list.json')
+    response.lookup_other = function (search) {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: '/clf_language_names/js/clf_other/' + search + '.json'
+        })
         .success(function (data) {
-            languages = data['clf'];            
+            deferred.resolve(data);            
         })
-        .error(function(data,status,error,config){
-            languages = [{heading:"Error",description:"Could not load json data"}];
+        .error(function(){
+            deferred.reject('Error');
         });
-        return languages;
+        return deferred.promise;
     }
-    this.list_other = function () {
-        $http.get('/clf_language_names/js/clf_other/clf_other.json')
+    response.list_clf = function () {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: '/clf_language_names/js/clf/clf_list.json'
+        })
         .success(function (data) {
-            other_languages = data['clf_other'];           
+            deferred.resolve(data['clf']);            
         })
-        .error(function(data,status,error,config){
-            other_languages = [{heading:"Error",description:"Could not load json data"}];
+        .error(function(){
+            deferred.reject('Error');
         });
-        return other_languages;
+        return deferred.promise;
     }
+    response.list_other = function () {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: '/clf_language_names/js/clf_other/clf_other.json'
+        })
+        .success(function (data) {
+            deferred.resolve(data['clf_other']);            
+        })
+        .error(function(){
+            deferred.reject('Error');
+        });
+        return deferred.promise;
+    }
+
+    return response;
 });

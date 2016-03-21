@@ -5,7 +5,9 @@ app.controller('MainController', ['$scope', 'json_fetcher', function($scope, jso
     $scope.lang = null;
 
     $scope.findValue = function(search) { 
-        $scope.result = json_fetcher.lookup_clf(search[0].toUpperCase() + search.slice(1));
+        json_fetcher.lookup_clf(search[0].toUpperCase() + search.slice(1)).then(function(data){
+            $scope.result = data;
+        });             
         if ($scope.result != null) {
             $scope.lang = Object.keys($scope.result)[0]; 
         }

@@ -1,5 +1,5 @@
-app.controller('LangController', function($scope, $routeParams) { 
-  $scope.showLanguage = function(key) {
-  	$scope.lang = key;
-  };
+app.controller('LangController', function($scope) { 
+  // $scope.showLanguage = function(key) {
+  // 	$scope.single_lang = key;
+  // };
 });

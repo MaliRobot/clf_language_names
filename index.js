@@ -9,7 +9,7 @@ app.config(['$routeProvider', function($routeProvider){
     })
     .when('/clf',{
       controller: 'CLFlangController',
-      templateUrl: 'views/clf.html'
+      templateUrl: 'views/clf.html',
     })
 	  .when('/other',{
       controller: 'OtherLangController',
