@@ -10,14 +10,11 @@ app.controller('MainController', ['$scope', 'json_fetcher', function($scope, jso
         });             
         if ($scope.result != null) {
             $scope.lang = Object.keys($scope.result)[0]; 
-        }
+        } 
     };
 
     $scope.langDefined = function() {
-        if ($scope.lang == 0) {
-            return true;
-        } 
-        return false;
+        return ($scope.lang != null);
     }
   
 }]);
