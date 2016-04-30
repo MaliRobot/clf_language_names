@@ -1,55 +1,69 @@
-<section ng-controller="MainController">
-	<div>CLF languages</div>
-	<!-- <pre> {{ search }} </pre> -->
-	<!-- <div ng-show="languages['search']"></div> -->
-	<a href='#/clf'>List of Wikipedia Languages</a>
-	<a href='#/other'>List of non-Wikipedia Languages</a>
+<div ng-controller="MainController" class="col-xs-12 main-row">
+	<h1 class="main-title">Languages Foundation</h1>
+	<div class="col-xs-12 main-menu">
+		<div class="col-sm-4">
+			<h2><a href='#/clf'>List of Wikipedia Languages</a></h2>
+		</div>
+		<div class="col-sm-4">
+			<h2><a href='#/other'>List of non-Wikipedia Languages</a></h2>
+		</div>
+		<div class="col-sm-4">
+			<h2><a href='#/about'>About LF</a></h2>
+		</div>
+	</div>
 	<form novalidate class="simple-form" ng-submit="findValue(search)">
 		<input name="search" type="search" ng-model="search" />
 		<!-- <button type="button" ng-Click="findValue(search)">Search</button> -->
 		{{ search }}
 	</form>
-	<div ng-show="langDefined()">
-		<p>No results.</p>
+	<div ng-show="langDefined()" id="no-results">
+		<h2>No results.</h2>
 	</div>
-	<ul ng-if="result">
+	<div ng-if="result">
 		<div ng-repeat="lang in result">
-			<li ng-if="lang.clf_full_code">CLF long code: {{ lang.clf_full_code }}</li>
-			<li ng-if="lang.wiki_code">Wiki code: {{ lang.wiki_code }}</li>
-		    <li ng-if="lang.iso_639_1">ISO 639-1: {{ lang.iso_639_1 }}</li>
-		    <li ng-if="lang.iso_639_3">ISO 639-3: {{ lang.iso_639_3 }}</li>
-		    <div ng-if="lang.language_names.regular">
+			<h2> {{ title }} </h2>
+			<div class="info">
+				<span ng-if="lang.clf_full_code"><p><b>LF long code:</b> {{ lang.clf_full_code }}</p></span>
+				<span ng-if="lang.wiki_code"><p><b>Wiki code:</b> {{ lang.wiki_code }}</p></span>
+				<span ng-if="lang.iso_639_1"><p><b>ISO 639-1:</b> {{ lang.iso_639_1 }}</p></span>
+				<span ng-if="lang.iso_639_3"><p><b>ISO 639-3:</b> {{ lang.iso_639_3 }}</p></span>
+			</div>
+		    <div ng-if="lang.language_names.regular" class="wiki-list col-xs-12">
 		        <h2>Names of Wikipedia languages</h2>
 				<div ng-repeat="(key, value) in lang.language_names.regular">
-					<h3> {{ key }} </h3>
-					<div ng-if="value.wiki_name">Wiki name: {{ value.wiki_name.name }} </div>
-					<div ng-if="value.clf_name">
-						<p>CLF name: {{ value.clf_name }}</p> 
-					</div>
-					<div ng-if="value.cldr_name">CLDR name(s):
-						<div ng-if="value.cldr_name" ng-repeat="cldr in value.cldr_name">
-							<p>{{ cldr.name }}</p> 
+					<div class="col-xs-6 col-sm-3 wikis">
+						<h3> {{ key }} </h3>
+						<div ng-if="value.wiki_name"><p><b>Wiki name:</b> {{ value.wiki_name.name }} </p></div>
+						<div ng-if="value.clf_name">
+							<p><b>LF name:</b> {{ value.clf_name }}</p> 
 						</div>
-					</div>
-					<div ng-if="value.lingvoj_names">Lingvoj name(s):
-						<div ng-if="value.lingvoj_names" ng-repeat="ling in value.lingvoj_names">
-							<p>{{ ling.name }}</p> 
+						<div ng-if="value.cldr_name"><p><b>CLDR name(s):</b></p>
+							<div ng-if="value.cldr_name" ng-repeat="cldr in value.cldr_name">
+								<p>{{ cldr.name }}</p> 
+							</div>
+						</div>
+						<div ng-if="value.lingvoj_names"><p><b>Lingvoj name(s):</b></p>
+							<div ng-if="value.lingvoj_names" ng-repeat="ling in value.lingvoj_names">
+								<p>{{ ling.name }}</p> 
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div ng-if="lang.language_names.other">
+			<div ng-if="lang.other" class="other-list col-xs-12">
 				<h2>Names of non-Wikipedia languages</h2>
-				<div ng-repeat="(code, names) in lang.language_names.other">
-					<h3> {{ code }} </h3>
-					<div ng-if="names.cldr_name" ng-repeat="c_other_name in names.cldr_name">
-						<p>CLDR name: {{ c_other_name.name }} </p>
-					</div>
-					<div ng-if="names.lingvoj_names" ng-repeat="l_other_name in names.lingvoj_names">
-						<p>Lingvoj name: {{ l_other_name }} </p>
+				<div ng-repeat="(code, names) in lang.other">
+					<div class="col-xs-6 col-sm-3 others">
+						<h3> {{ code }} </h3>
+						<div ng-if="names.cldr_name" ng-repeat="c_other_name in names.cldr_name">
+							<p><b>CLDR name:</b> {{ c_other_name.name }} </p>
+						</div>
+						<div ng-if="names.lingvoj_names" ng-repeat="l_other_name in names.lingvoj_names">
+							<p><b>Lingvoj name:</b> {{ l_other_name }} </p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</ul>
-</section>
+	</div>
+</div>

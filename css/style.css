@@ -1,3 +1,104 @@
-p {
+html {
+	min-height: 100%;
+    width: 100%;
+	border: 5px solid #ff3333;
+	margin: 0 auto 0 auto;
+}
+
+h1, h2, h3, p {
 	font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+form {
+	display: inline-block;
+    text-align: center;
+}
+
+.glyphicon {
+    font-size: 50px;
+    color: #ff3333;
+}
+
+.home {
+	margin-top: 2%;
+	margin-left: 2%;
+	color: #ff3333;
+}
+
+.home:hover {
+	color: #ff3333;
+}
+
+.main-row {
+
+}
+
+.main-title,
+.main-menu,
+#no-results {
+	text-align: center;
+}
+
+#no-results {
+
+}
+
+.simple-form {
+	position: relative;
+}
+
+.wikis,
+.others,
+.wikis-wikis {
+	background-color: #ff3333;
+	border: 1px solid white;
+	color: white;
+}
+
+.wikis {
+	min-height: 240px;
+}
+
+.wikis-wikis {
+	min-height: 120px;
+}
+
+.others {
+	min-height: 80px;
+}
+
+.clf-list {
+	padding-top: 3%;
+}
+
+.wiki-list {
+
+}
+
+.other-list {
+
+}
+
+.clf-other-list {
+	padding-bottom: 5%;
+}
+
+.other-other-list {
+	margin-left: 5%;
+}
+
+.other-other-codes {
+	text-align: center;
+}
+
+.wiki-lang-title {
+	text-align: center;
+}
+
+.info {
+	font-size: 20px;
+}
+
+.all-about {
+	text-align: center;
 }

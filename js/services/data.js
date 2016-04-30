@@ -4,6 +4,7 @@ app.factory('json_fetcher', function($http, $q) {
     var lang = null;
     var other_lang = null;
     var other_languages = null;
+    
     response.lookup_clf = function (search) {
         var deferred = $q.defer();
         $http({

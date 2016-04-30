@@ -1,42 +1,56 @@
 <div class="main" ng-controller="CLFlangController">
-	<h1>{{ title }}</h1>
+	<p class="home"><a href='#/'><span class="glyphicon glyphicon-home"></span></a></p>
+	<h1 class="main-title">{{ title }}</h1>
 	<div ng-show="langDefined()">
-		<h2>{{ langTitle }}</h2>
+		<h2 class="wiki-lang-title">{{ langTitle }}</h2>
 		<div ng-if="lang">
 			<div ng-repeat="l in lang">
-				<p >CLF long code: {{ l.clf_full_code }}</p>
-				<p >Wikipedia code {{ l.wiki_code }}</p>
-				<p >ISO 639-1 code {{ l.iso_639_1 }}</p>
-	    		<p >ISO 639-3 code {{ l.iso_639_3 }}</p>
-    	
-				<div ng-repeat="(key, value) in l.language_names.regular">
-					<h3> {{ key }} </h3>
-					<div ng-if="value.clf_name">CLF long code: {{ value.clf_name }} </div>
-					<div ng-if="value.wiki_name.name">Wiki name: {{ value.wiki_name.name }} </div>
-					<div ng-if="value.cldr_name">
-						<div ng-repeat="cldr in value.cldr_name">
-							<p>CLDR name: {{ cldr.name }}</p> 
-						</div>
-						<div  ng-if="value.lingvoj_names">
-							<div ng-if="value.lingvoj_names" ng-repeat="ling in value.lingvoj_names">
-								<p>Lingvoj name: {{ ling.name }}</p> 
+				<div class="col-xs-12">
+					<div class="info">
+						<p><b>LF long code:</b> {{ l.clf_full_code }}</p>
+						<p><b>Wikipedia code:</b> {{ l.wiki_code }}</p>
+						<p><b>ISO 639-1 code:</b> {{ l.iso_639_1 }}</p>
+			    		<p><b>ISO 639-3 code:</b> {{ l.iso_639_3 }}</p>
+			    	</div>
+	    			<h2>Names of other Wikipedia languages in {{ langTitle }}</h2>
+					<div ng-repeat="(key, value) in l.language_names.regular">
+						<div class="col-xs-6 col-sm-3 wikis-wikis">
+							<h3> {{ key }} </h3>
+							<div ng-if="value.clf_name"><b>LF long code:</b> {{ value.clf_name }} </div>
+							<div ng-if="value.wiki_name.name"><b>Wiki name:</b> {{ value.wiki_name.name }} </div>
+							<div ng-if="value.cldr_name">
+								<div ng-repeat="cldr in value.cldr_name">
+									<p><b>CLDR name:</b> {{ cldr.name }}</p> 
+								</div>
+								<div  ng-if="value.lingvoj_names">
+									<div ng-if="value.lingvoj_names" ng-repeat="ling in value.lingvoj_names">
+										<p><b>Lingvoj name:</b> {{ ling.name }}</p> 
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>	
-			<div ng-repeat="(code, names) in l.language_names.other">
-				<h3> {{ code }} </h3>
-				<div ng-if="names.cldr_name" ng-repeat="c_other_name in names.cldr_name">
-					<p>CLDR name: {{ c_other_name.name }} </p>
-				</div>
-				<div ng-if="names.lingvoj_names" ng-repeat="l_other_name in names.lingvoj_names">
-					<p>Lingvoj name: {{ l_other_name }} </p>
+				<div ng-if="has_other()" class="col-xs-12 clf-other-list">
+					<h2>Names of non-Wikipedia languages in {{ langTitle }}</h2>
+					<div ng-repeat="(code, names) in l.other">
+						<div class="col-xs-6 col-sm-3 wikis-wikis">
+							<h3> {{ code }} </h3>
+							<div ng-if="names.cldr_name" ng-repeat="c_other_name in names.cldr_name">
+								<p><b>CLDR name:</b> {{ c_other_name.name }} </p>
+							</div>
+							<div ng-if="names.lingvoj_names" ng-repeat="l_other_name in names.lingvoj_names">
+								<p><b>Lingvoj name:</b> {{ l_other_name }} </p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>   
 	</div>
-	<div ng-repeat="(key, value) in languages">
-		<a href ng-click="showLanguage(value)"> {{ value }} </a>
-	</div>      
+	<div class="clf-list">
+		<div ng-repeat="(key, value) in languages">
+			<div class="col-xs-4 col-sm-2"><p><a href ng-click="showLanguage(value)"> {{ value }} </a></p></div>
+		</div>      
+	</div>
 </div>

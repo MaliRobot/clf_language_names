@@ -1,6 +1,6 @@
 app.controller('CLFlangController', ['$scope', '$timeout', 'json_fetcher', function($scope, $timeout, json_fetcher) { 
     $scope.title = 'Names of Wikipedia languages'; 
-    // $scope.languages = null;
+    $scope.langTitle = null;
     $scope.lang = null;
     $scope.res = null;
 
@@ -13,13 +13,24 @@ app.controller('CLFlangController', ['$scope', '$timeout', 'json_fetcher', funct
             $scope.lang = data;
         });
 
-        if ($scope.lang != null) {
-            $scope.langTitle = Object.keys($scope.lang)[0];
-        }
+        $scope.langTitle = key;
     };
 
     $scope.langDefined = function() {
         return ($scope.lang != null);
     }
+
+    $scope.has_other = function() {
+        if ($scope.lang != null) {
+            if (Object.keys($scope.lang[$scope.langTitle].other).length === 0) {
+                console.log('false');
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+
 }]);
 

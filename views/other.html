@@ -1,20 +1,26 @@
 <div class="main" ng-controller="OtherLangController">
-	<h1>{{ title }}</h1>
-	<div ng-show="langDefined()">
-		<h2>{{ langTitle }}</h2>
+	<p class="home"><a href='#/'><span class="glyphicon glyphicon-home"></span></a></p>
+	<h1 class="main-title">{{ title }}</h1>
+	<div ng-show="langDefined()" class="other-other-list col-xs-12">
+		<h2><b>List of names for language code:</b> {{ langTitle }}</h2>
 		<div ng-repeat="lng in other_lang">
 			<div ng-repeat="(k, v) in lng">
-				<h3>{{ k }}</h3> 
-				<div ng-repeat="cldr_other in v.cldr_name">
-					<p>CLDR name(s): {{ cldr_other.name }}</p> 
-				</div>
-				<div ng-repeat="ling_other in v.lingvoj_names">
-					<p>Lingvoj name(s): {{ ling_other.name }}</p> 
+				<div class="col-xs-6 col-sm-3">
+					<h3>{{ k }}</h3> 
+					<div ng-repeat="cldr_other in v.cldr_name">
+						<p><b>CLDR name(s):</b> {{ cldr_other.name }}</p> 
+					</div>
+					<div ng-repeat="ling_other in v.lingvoj_names">
+						<p><b>Lingvoj name(s):</b> {{ ling_other.name }}</p> 
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div ng-repeat="(key, lang) in other_languages">
-		<a href ng-click="showLanguage(lang)"> {{ lang }} </a>
-	</div>  
+	<div class="other-other-codes col-xs-12">
+		<h2 class="other-other-codes">All codes</h2>
+		<div ng-repeat="(key, lang) in other_languages">
+			<h3 class="col-xs-6 col-sm-3"><a href ng-click="showLanguage(lang)"> {{ lang }} </a></h3>
+		</div>  
+	</div>
 </div>
