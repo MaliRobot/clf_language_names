@@ -1,4 +1,4 @@
-app.controller('OtherLangController', ['$scope', 'json_fetcher', function($scope, json_fetcher) { 
+app.controller('OtherLangController', ['$scope', 'json_fetcher', '$location', 'anchorSmoothScroll', function($scope, json_fetcher, $location, anchorSmoothScroll) { 
     $scope.title = 'List of languages not featured on Wikipedia'; 
     $scope.other_lang = null;
     $scope.langTitle = null;
@@ -13,6 +13,8 @@ app.controller('OtherLangController', ['$scope', 'json_fetcher', function($scope
   	        $scope.other_lang = data;
         });
         $scope.langTitle = key;
+
+        anchorSmoothScroll.scrollTo('top');
     }
 
     $scope.langDefined = function() {

@@ -1,4 +1,4 @@
-<div class="main" ng-controller="OtherLangController">
+<div class="main" id="top" ng-controller="OtherLangController">
 	<p class="home"><a href='#/'><span class="glyphicon glyphicon-home"></span></a></p>
 	<h1 class="main-title">{{ title }}</h1>
 	<div ng-show="langDefined()" class="other-other-list col-xs-12">
@@ -20,7 +20,7 @@
 	<div class="other-other-codes col-xs-12">
 		<h2 class="other-other-codes">All codes</h2>
 		<div ng-repeat="(key, lang) in other_languages">
-			<h3 class="col-xs-6 col-sm-3"><a href ng-click="showLanguage(lang)"> {{ lang }} </a></h3>
+			<h3 class="col-xs-6 col-sm-3"><a href ng-click="showLanguage(lang)" class="l-title"> {{ lang }} </a></h3>
 		</div>  
 	</div>
 </div>

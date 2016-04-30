@@ -1,4 +1,4 @@
-app.controller('CLFlangController', ['$scope', '$timeout', 'json_fetcher', function($scope, $timeout, json_fetcher) { 
+app.controller('CLFlangController', ['$scope', '$timeout', 'json_fetcher', '$location', 'anchorSmoothScroll', function($scope, $timeout, json_fetcher, $location, anchorSmoothScroll) { 
     $scope.title = 'Names of Wikipedia languages'; 
     $scope.langTitle = null;
     $scope.lang = null;
@@ -14,6 +14,8 @@ app.controller('CLFlangController', ['$scope', '$timeout', 'json_fetcher', funct
         });
 
         $scope.langTitle = key;
+
+        anchorSmoothScroll.scrollTo('top');
     };
 
     $scope.langDefined = function() {
@@ -22,11 +24,17 @@ app.controller('CLFlangController', ['$scope', '$timeout', 'json_fetcher', funct
 
     $scope.has_other = function() {
         if ($scope.lang != null) {
-            if (Object.keys($scope.lang[$scope.langTitle].other).length === 0) {
-                console.log('false');
-                return false;
-            } else {
-                return true;
+            try {
+                if (Object.keys($scope.lang[$scope.langTitle].other).length === 0) {
+                    console.log('false');
+                    return false;
+                } else {
+                    console.log('has it!');
+                    return true;
+                }
+            } catch(err) {
+                console.log(err);
+                return false
             }
         }
     }

@@ -1,4 +1,4 @@
-<div class="main" ng-controller="CLFlangController">
+<div class="main" id="top" ng-controller="CLFlangController">
 	<p class="home"><a href='#/'><span class="glyphicon glyphicon-home"></span></a></p>
 	<h1 class="main-title">{{ title }}</h1>
 	<div ng-show="langDefined()">
@@ -50,7 +50,7 @@
 	</div>
 	<div class="clf-list">
 		<div ng-repeat="(key, value) in languages">
-			<div class="col-xs-4 col-sm-2"><p><a href ng-click="showLanguage(value)"> {{ value }} </a></p></div>
+			<div class="col-xs-4 col-sm-2"><p><a href ng-click="showLanguage(value)" class="l-title"> {{ value }} </a></p></div>
 		</div>      
 	</div>
 </div>
