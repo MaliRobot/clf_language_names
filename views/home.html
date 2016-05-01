@@ -11,15 +11,16 @@
 			<h2><a href='#/about'>About LF</a></h2>
 		</div>
 	</div>
-	<form novalidate class="simple-form" ng-submit="findValue(search)">
-		<input name="search" type="search" ng-model="search" />
-		<!-- <button type="button" ng-Click="findValue(search)">Search</button> -->
-		{{ search }}
+	<form class="lang-pick-form" role="form">
+		<div class="form-group">
+			<label class="col-xs-12"><p>Select Wiktionary language from the list:</p></label>
+			<select ng-model="search">
+				<option ng-repeat="option in options" value="{{ option }}">{{ option }}</option>
+			</select>
+			<button ng-click="findValue(search)" type="submit" class="btn btn-default"><p>Click to show</p></button>
+		</div>
 	</form>
-	<div ng-show="langDefined()" id="no-results">
-		<h2>No results.</h2>
-	</div>
-	<div ng-if="result">
+	<div ng-show="result">
 		<div ng-repeat="lang in result">
 			<h2> {{ title }} </h2>
 			<div class="info">

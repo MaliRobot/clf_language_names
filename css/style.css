@@ -11,7 +11,42 @@ h1, h2, h3, p {
 
 form {
 	display: inline-block;
-    text-align: center;
+	/*width: 20%;*/
+}
+
+label {
+	font-size: 20px;
+}
+
+select {
+	margin-left: 14px;
+}
+
+.lang-pick-form {
+	padding-top: 5%;
+	margin: auto;
+	text-align: center;
+}
+
+.btn,
+.btn:focus {
+	color: white;
+	background-color: #ff3333;
+	transition: all 0.3s ease 0s;
+}
+
+.btn:hover {
+	color: white;
+	background-color: #800000;
+}
+
+.btn:focus,
+.btn:target {
+	outline: none;
+}
+
+.btn>p {
+	margin: 0;
 }
 
 .glyphicon {
@@ -62,6 +97,7 @@ form {
 .main-menu,
 #no-results {
 	text-align: center;
+	padding-top: 5%;
 }
 
 #no-results {

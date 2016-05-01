@@ -4,7 +4,7 @@ app.factory('json_fetcher', function($http, $q) {
     var lang = null;
     var other_lang = null;
     var other_languages = null;
-    
+
     response.lookup_clf = function (search) {
         var deferred = $q.defer();
         $http({
@@ -18,7 +18,7 @@ app.factory('json_fetcher', function($http, $q) {
             deferred.reject('Error');
         });
         return deferred.promise;
-    }
+    },
     response.lookup_other = function (search) {
         var deferred = $q.defer();
         $http({
@@ -32,7 +32,7 @@ app.factory('json_fetcher', function($http, $q) {
             deferred.reject('Error');
         });
         return deferred.promise;
-    }
+    },
     response.list_clf = function () {
         var deferred = $q.defer();
         $http({
@@ -46,7 +46,7 @@ app.factory('json_fetcher', function($http, $q) {
             deferred.reject('Error');
         });
         return deferred.promise;
-    }
+    },
     response.list_other = function () {
         var deferred = $q.defer();
         $http({
